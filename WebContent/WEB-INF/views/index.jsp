@@ -40,9 +40,10 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="listaDocentes">Professores</a></li>
-                  <li><a href="listaAlunos">Alunos</a></li>
-                  <li><a href="listaCursos">Cursos</a></li>
+                  <li><a href="listarDocentes">Professores</a></li>
+                  <li><a href="listarAlunos">Alunos</a></li>
+                  <li><a href="listarCursos">Cursos</a></li>
+                  <li><a href="listarInstituicoes">Instituições</a></li>
                 </ul>
               </li>
             </ul>

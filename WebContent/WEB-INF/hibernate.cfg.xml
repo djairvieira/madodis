@@ -11,10 +11,13 @@
     	<property name="show_sql">true</property>
     	<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
     	<property name="hibernate.current_session_context_class">thread</property>
-    	<property name="hibernate.hbm2ddl.auto">create</property>
+    	<property name="hibernate.hbm2ddl.auto">update</property>
     	
+    	<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Endereco"/>
+		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Telefone"/>
+		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Instituicao"/>
 		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Docente"/>
 		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Aluno"/>
-		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Curso"/>					    
+		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Curso"/>				    
 	</session-factory>
 </hibernate-configuration>	

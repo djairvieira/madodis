@@ -5,20 +5,20 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import br.edu.facol.gestaoacademicaweb.dao.AlunoDAO;
-import br.edu.facol.gestaoacademicaweb.pojo.Aluno;
+import br.edu.facol.gestaoacademicaweb.dao.InstituicaoDAO;
+import br.edu.facol.gestaoacademicaweb.pojo.Instituicao;
 
 @Repository
-public class AlunoDAOImpl extends BaseDaoImpl<Aluno> implements AlunoDAO {
+public class InstituicaoDAOImpl extends BaseDaoImpl<Instituicao> implements InstituicaoDAO {
 
 	@Override
 	public void remover(int id) {
 		try{
 			session = sessionFactory.openSession();
-			Aluno aluno = (Aluno) session.load(Aluno.class, id);
-			if(aluno != null){
+			Instituicao instituicao = (Instituicao) session.load(Instituicao.class, id);
+			if(instituicao != null){
 				transaction = session.beginTransaction();
-				session.delete(aluno);
+				session.delete(instituicao);
 				transaction.commit();
 				session.close();
 			}
@@ -31,12 +31,12 @@ public class AlunoDAOImpl extends BaseDaoImpl<Aluno> implements AlunoDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Aluno> listarTodos() {
-		List<Aluno> alunos = new ArrayList<Aluno>();
+	public List<Instituicao> listarTodos() {
+		List<Instituicao> instituicoes = new ArrayList<Instituicao>();
 		try{
 			session = sessionFactory.openSession();
 			transaction = session.beginTransaction();			 
-			alunos = session.createQuery("from Aluno ").list(); 					 
+			instituicoes = session.createQuery("from Instituicao ").list(); 					 
 			transaction.commit();
 			session.close();
 		}catch(Exception ex){
@@ -44,16 +44,16 @@ public class AlunoDAOImpl extends BaseDaoImpl<Aluno> implements AlunoDAO {
 			session.close();
 			ex.printStackTrace();
 		}
-		return alunos;
+		return instituicoes;
 	}
 
 	@Override
-	public Aluno getById(int id) {
-		Aluno aluno = null;
+	public Instituicao getById(int id) {
+		Instituicao instituicao = null;
 		try{
 			session = sessionFactory.openSession();
 			transaction = session.beginTransaction();
-			aluno = (Aluno) session.load(Aluno.class, id);
+			instituicao = (Instituicao) session.load(Instituicao.class, id);
 			transaction.commit();
 			session.close();
 		}catch(Exception ex){
@@ -62,7 +62,7 @@ public class AlunoDAOImpl extends BaseDaoImpl<Aluno> implements AlunoDAO {
 			ex.printStackTrace();
 		}
 		
-		return aluno;
+		return instituicao;
 	}
 
 }

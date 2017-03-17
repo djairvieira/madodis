@@ -16,12 +16,14 @@ import org.springframework.web.servlet.ModelAndView;
 import br.edu.facol.gestaoacademicaweb.pojo.Aluno;
 import br.edu.facol.gestaoacademicaweb.pojo.Curso;
 import br.edu.facol.gestaoacademicaweb.pojo.Docente;
+import br.edu.facol.gestaoacademicaweb.pojo.Instituicao;
 import br.edu.facol.gestaoacademicaweb.service.AlunoService;
 import br.edu.facol.gestaoacademicaweb.service.CursoService;
 import br.edu.facol.gestaoacademicaweb.service.DocenteService;
+import br.edu.facol.gestaoacademicaweb.service.InstituicaoService;
 
 @Controller
-public class DocenteController {
+public class RequestsController {
 
 	@Resource(name="docenteService")
 	private DocenteService docenteService;
@@ -31,6 +33,9 @@ public class DocenteController {
 
 	@Resource(name="cursoService")
 	private CursoService cursoService;
+	
+	@Resource(name="instituicaoService")
+	private InstituicaoService instituicaoService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {		
@@ -43,7 +48,7 @@ public class DocenteController {
 	}
 
 //Configura��es referentes a Docentes ---------------------------------------------	
-	@RequestMapping("/listaDocentes")
+	@RequestMapping("/listarDocentes")
 	public String listarDocentes(Map<String, Object> map){
 			map.put("docente", new Docente());
 			map.put("docenteList", docenteService.listarDocentes());		
@@ -62,7 +67,7 @@ public class DocenteController {
 			model.addAttribute("matricula", docente.getMatricula());
 			model.addAttribute("titulacao", docente.getTitulacao());
 			docenteService.adicionarDocente(docente);
-		return "redirect:/listaDocentes";
+		return "redirect:/listarDocentes";
 	}
 	
 	@RequestMapping(value="/update/{docenteId}", method=RequestMethod.GET)
@@ -74,20 +79,20 @@ public class DocenteController {
 	@RequestMapping(value="/atualizar", method=RequestMethod.PUT)
 	public String atualizarDocente(final Docente docente){
 			docenteService.atualizaDocente(docente);
-		return "redirect:/listaDocentes";
+		return "redirect:/listarDocentes";
 	}
 	
 	@RequestMapping("/remover/{docenteId}")
 	public String removerDocente(@PathVariable("docenteId") int id){
 			docenteService.removerDocente(id);
-		return "redirect:/listaDocentes";
+		return "redirect:/listarDocentes";
 	}
 
 //Configura��es referentes a Alunos ---------------------------------------------	
-	@RequestMapping("/listaAlunos")
+	@RequestMapping("/listarAlunos")
 	public String listarAlunos(Map<String, Object> map){
 			map.put("aluno", new Aluno());
-			map.put("alunoList", alunoService.listaAlunos());		
+			map.put("alunoList", alunoService.listarAlunos());		
 		return "alunos/listar_aluno";
 	}
 	
@@ -104,8 +109,47 @@ public class DocenteController {
 		model.addAttribute(aluno.getMatricula());
 		model.addAttribute(aluno.getId_curso());
 		alunoService.adicionarAluno(aluno);
-		return "redirect:/listaAlunos";
+		return "redirect:/listarAlunos";
 	}
+	
+	//Configura��es referentes a Instituicao ---------------------------------------------	
+		@RequestMapping("/listarInstituicoes")
+		public String listarInstituicoes(Map<String, Object> map){
+				map.put("instituicao", new Instituicao());
+				map.put("instituicaoList", instituicaoService.listarInstituicoes());		
+			return "instituicao/listar_instituicao";
+		}
+		
+		@RequestMapping("/form_instituicao")
+		public String formInstituicoes(Map<String, Object> map){
+			map.put("instituicao", new Instituicao());
+			return "instituicao/inserir_instituicao_form";
+		}
+		
+		@RequestMapping("/remover/instituicao/{instituicaoId}")
+		public String removerInstituicao(@PathVariable("instituicaoId") int id){
+				instituicaoService.removerInstituicao(id);
+			return "redirect:/listarInstituicoes";
+		}
+		
+		@RequestMapping("/update/instituicao/{instituicaoId}")
+		public String atualizarInstituicao(@PathVariable("instituicaoId") int id){
+				instituicaoService.getInstituicaoById(id);
+			return "redirect:/form_instituicao";
+		}
+		
+		@RequestMapping(value="/adicionarInstituicao", method=RequestMethod.POST)
+		public String adicionarInstituicao(@ModelAttribute("instituicao") Instituicao instituicao, 
+				ModelMap model, HttpServletRequest request){
+			model.addAttribute(instituicao.getNomeFantasia());
+			model.addAttribute(instituicao.getNomeEmpresarial());
+			model.addAttribute(instituicao.getCnpj());
+			model.addAttribute(instituicao.getInscricaoEstadual());
+			model.addAttribute(instituicao.getEndereco());
+			model.addAttribute(instituicao.getTelefone());
+			instituicaoService.adicionarInstituicao(instituicao);
+			return "redirect:/listarInstituicoes";
+		}
 	
 
 //Configura��es referentes a Cursos ---------------------------------------------	
@@ -115,7 +159,7 @@ public class DocenteController {
 		return "cursos/inserir_curso_form";
 	}
 
-	@RequestMapping("/listaCursos")
+	@RequestMapping("/listarCursos")
 	public String listarCursos(Map<String, Object> map){
 		map.put("curso", new Curso());
 		map.put("cursoList", cursoService.listaCursos());
@@ -126,7 +170,7 @@ public class DocenteController {
 	public String adicionarCurso(@ModelAttribute("curso") Curso curso, ModelMap model, HttpServletRequest request){		
 			model.addAttribute("nome", curso.getNome());
 			cursoService.adicionarCurso(curso);
-		return "redirect:/listaCursos";
+		return "redirect:/listarCursos";
 	}
 
 }
