@@ -25,18 +25,34 @@
 			integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
 			crossorigin="anonymous"></script>
 		
-		<title>Cadastro de Instituição</title>
+		<title>Cadastro/Atualizar de Instituição</title>
 	</head>
 	<body>
 		<div class="container">
 			<h3>
-				<legend>Formulário de Cadastro de Instituição</legend>
+				<c:choose>
+					<c:when test="${instituicao.id < 1}">
+						<legend>Cadastrar Instituição</legend>
+					</c:when>
+					<c:otherwise>
+						<legend>Atualizar Instituição</legend>
+					</c:otherwise>
+				</c:choose>
 			</h3>
 		</div>
 		<div class="container">
 			<div class="col-mod-4"></div>
 			<div class="col-mod-4">
-				<form:form method="post" action="adicionarInstituicao.html" commandName="instituicao">
+				
+				<c:choose>
+					<c:when test="${instituicao.id < 1}">
+						<c:set var="my_action" value="adicionarInstituicao.html"/>
+					</c:when>
+					<c:otherwise>
+						<c:set var="my_action" value="atualizarInstituicao.html"/>
+					</c:otherwise>
+				</c:choose>
+				<form:form method="post" action="${my_action}" commandName="instituicao">
 					<label>Nome Fantasia:</label>
 					<form:input path="nomeFantasia" cssClass="form-control" size="100" maxlength="100"  />
 					<br />

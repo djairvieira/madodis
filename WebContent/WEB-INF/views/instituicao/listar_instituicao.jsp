@@ -28,7 +28,7 @@
 		<div class="container">
 			<h3>
 				<legend>
-					<a href="home">Instituições Cadastrados</a>
+					<a href="#">Instituições Cadastrados</a>
 				</legend>
 			</h3>
 		</div>

@@ -32,11 +32,13 @@ public class InstituicaoServiceImpl implements InstituicaoService {
 	}
 
 	@Override
+	@Transactional
 	public List<Instituicao> listarInstituicoes() {
 		return instituicaoDAO.listarTodos();
 	}
 
 	@Override
+	@Transactional
 	public Instituicao getInstituicaoById(int id) {
 		return instituicaoDAO.getById(id);
 	}

@@ -3,6 +3,7 @@ package br.edu.facol.gestaoacademicaweb.pojo;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -22,10 +23,10 @@ public class Instituicao extends BaseObject {
 	@Column(name="INSCRICAO_ESTADUAL")
 	private String inscricaoEstadual;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Endereco endereco;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Telefone telefone;
 
 	public Instituicao() {

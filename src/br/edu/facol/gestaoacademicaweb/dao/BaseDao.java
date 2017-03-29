@@ -12,7 +12,7 @@ public interface BaseDao<T extends BaseObject> {
 	
 	void remover(T entity);
 	
-	void remover(int id);
+	boolean remover(int id);
 	
 	T getById(int id);
 	
