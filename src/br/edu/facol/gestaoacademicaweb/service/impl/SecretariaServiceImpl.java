@@ -32,11 +32,13 @@ public class SecretariaServiceImpl implements SecretariaService {
 	}
 
 	@Override
+	@Transactional
 	public List<Secretaria> listarSecretarias() {
 		return secretariaDAO.listarTodos();
 	}
 
 	@Override
+	@Transactional
 	public Secretaria getSecretariaById(int id) {
 		return secretariaDAO.getById(id);
 	}

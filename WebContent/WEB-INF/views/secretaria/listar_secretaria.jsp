@@ -22,20 +22,20 @@
 			integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
 			crossorigin="anonymous"></script>
 		
-		<title>Listagem de Alunos</title>
+		<title>Listagem de Secretarias</title>
 	</head>
 	<body>
 		<div class="container">
 			<h3>
 				<legend>
-					<a href="home">Alunos Cadastrados</a>
+					<a href="home">Secretarias Cadastrados</a>
 				</legend>
 			</h3>
 		</div>
-		<c:if test="${empty alunoList}">
+		<c:if test="${empty secretariaList}">
 			<div class="container">
 				<div class="col-mod-4">
-					<h4>Nada existe registro de alunos para mostrar!</h4>
+					<h4>Nada existe registro de secretarias para mostrar!</h4>
 				</div>
 			</div>
 		</c:if>
@@ -53,21 +53,21 @@
 						<th>&nbsp;</th>
 						<th>&nbsp;</th>
 					</tr>
-					<c:forEach items="${alunoList}" var="aluno">
+					<c:forEach items="${secretariaList}" var="secretaria">
 						<tr>
-							<td>${aluno.nome}</td>
-							<td>${aluno.cpf}</td>
-							<td>${aluno.matricula}</td>
-							<td><a href="remover/aluno/${aluno.id}"><span
+							<td>${secretaria.nome}</td>
+							<td>${secretaria.cpf}</td>
+							<td>${secretaria.matricula}</td>
+							<td><a href="remover/secretaria/${secretaria.id}"><span
 									class="glyphicon glyphicon-remove-circle"></span></a></td>
-							<td><a href="update/aluno/${aluno.id}"><span 
+							<td><a href="update/secretaria/${secretaria.id}"><span 
 									class="glyphicon glyphicon-pencil"></span></a></td>
 						</tr>
 					</c:forEach>
 				</table>
 			</div>
 			<div>
-				<a href="form_alunos"><button class="btn btn-success">
+				<a href="form_secretarias"><button class="btn btn-success">
 						<i class="glyphicon glyphicon-plus-sign"></i>&nbsp;Novo
 					</button></a>
 			</div>

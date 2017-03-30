@@ -32,11 +32,13 @@ public class AlunoServiceImpl implements AlunoService {
 	}
 
 	@Override
+	@Transactional
 	public List<Aluno> listarAlunos() {
 		return alunoDAO.listarTodos();
 	}
 
 	@Override
+	@Transactional
 	public Aluno getAlunoById(int id) {
 		return alunoDAO.getById(id);
 	}

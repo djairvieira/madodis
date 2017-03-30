@@ -1,7 +1,5 @@
 package br.edu.facol.gestaoacademicaweb.pojo;
 
-import java.util.Date;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EnumType;
@@ -9,6 +7,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @MappedSuperclass
 public abstract class Pessoa extends BaseObject {
@@ -21,7 +21,8 @@ public abstract class Pessoa extends BaseObject {
 	private Sexo sexo;
 	
 	@Column(name="DATA_NASCIMENTO")
-	private Date dataNascimento;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private String dataNascimento;
 	
 	@Column(name="NOME_PAI")
 	private String nomePai;
@@ -78,11 +79,11 @@ public abstract class Pessoa extends BaseObject {
 		this.sexo = sexo;
 	}
 
-	public Date getDataNascimento() {
+	public String getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 

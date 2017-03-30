@@ -42,7 +42,7 @@ public class InstituicaoController {
 	}
 
 	@RequestMapping(value = "/update/instituicao/{instituicaoId}", method = RequestMethod.GET)
-	public ModelAndView atualizarInstituicao(@PathVariable("instituicaoId") int id) {
+	public ModelAndView getInstituicao(@PathVariable("instituicaoId") int id) {
 		Instituicao instituicao = instituicaoService.getInstituicaoById(id);
 		return new ModelAndView("instituicao/form_instituicao", "instituicao", instituicao);
 	}

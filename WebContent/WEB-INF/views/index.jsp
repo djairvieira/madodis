@@ -44,6 +44,7 @@
                   <li><a href="listarAlunos">Alunos</a></li>
                   <li><a href="listarCursos">Cursos</a></li>
                   <li><a href="listarInstituicoes">Instituições</a></li>
+                  <li><a href="listarSecretarias">Secretarias</a></li>
                 </ul>
               </li>
             </ul>

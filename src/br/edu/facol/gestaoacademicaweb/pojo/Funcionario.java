@@ -1,9 +1,9 @@
 package br.edu.facol.gestaoacademicaweb.pojo;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @MappedSuperclass
 public abstract class Funcionario extends Pessoa {
@@ -12,7 +12,8 @@ public abstract class Funcionario extends Pessoa {
 	private String ctpsNumero;
 	
 	@Column(name="CTPS_DATA_EXPEDICAO")
-	private Date ctpsDataExpedicao;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private String ctpsDataExpedicao;
 
 	public String getCtpsNumero() {
 		return ctpsNumero;
@@ -22,11 +23,11 @@ public abstract class Funcionario extends Pessoa {
 		this.ctpsNumero = ctpsNumero;
 	}
 
-	public Date getCtpsDataExpedicao() {
+	public String getCtpsDataExpedicao() {
 		return ctpsDataExpedicao;
 	}
 
-	public void setCtpsDataExpedicao(Date ctpsDataExpedicao) {
+	public void setCtpsDataExpedicao(String ctpsDataExpedicao) {
 		this.ctpsDataExpedicao = ctpsDataExpedicao;
 	}
 	
