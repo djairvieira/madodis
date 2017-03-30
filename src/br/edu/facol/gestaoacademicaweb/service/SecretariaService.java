@@ -8,7 +8,7 @@ public interface SecretariaService {
 	
 	public void adicionarSecretaria(Secretaria aluno);
 	public void removerSecretaria(int id);
-	public void atualizaSecretaria(Secretaria aluno);
+	public void atualizarSecretaria(Secretaria aluno);
 	public List<Secretaria> listarSecretarias();
 	public Secretaria getSecretariaById(int id);
 	

@@ -27,7 +27,7 @@ public class SecretariaServiceImpl implements SecretariaService {
 	}
 
 	@Transactional
-	public void atualizaSecretaria(Secretaria secretaria) {
+	public void atualizarSecretaria(Secretaria secretaria) {
 		secretariaDAO.atualizar(secretaria);
 	}
 

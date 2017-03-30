@@ -69,7 +69,7 @@ public class InstituicaoController {
 		model.addAttribute(instituicao.getInscricaoEstadual());
 		model.addAttribute(instituicao.getEndereco());
 		model.addAttribute(instituicao.getTelefone());
-		instituicaoService.atualizaInstituicao(instituicao);
+		instituicaoService.atualizarInstituicao(instituicao);
 		return "redirect:/listarInstituicoes";
 	}
 }

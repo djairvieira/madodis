@@ -8,7 +8,7 @@ public interface ProfessorService {
 	
 	public void adicionarProfessor(Professor aluno);
 	public void removerProfessor(int id);
-	public void atualizaProfessor(Professor aluno);
+	public void atualizarProfessor(Professor aluno);
 	public List<Professor> listarProfessors();
 	public Professor getProfessorById(int id);
 	

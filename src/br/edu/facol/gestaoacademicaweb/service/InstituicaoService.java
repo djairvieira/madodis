@@ -8,7 +8,7 @@ public interface InstituicaoService {
 	
 	public void adicionarInstituicao(Instituicao instituicao);
 	public void removerInstituicao(int id);
-	public void atualizaInstituicao(Instituicao instituicao);
+	public void atualizarInstituicao(Instituicao instituicao);
 	public List<Instituicao> listarInstituicoes();
 	public Instituicao getInstituicaoById(int id);
 	

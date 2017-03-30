@@ -27,16 +27,18 @@ public class CoordenadorServiceImpl implements CoordenadorService {
 	}
 
 	@Transactional
-	public void atualizaCoordenador(Coordenador coordenador) {
+	public void atualizarCoordenador(Coordenador coordenador) {
 		coordenadorDAO.atualizar(coordenador);
 	}
 
 	@Override
+	@Transactional
 	public List<Coordenador> listarCoordenadors() {
 		return coordenadorDAO.listarTodos();
 	}
 
 	@Override
+	@Transactional
 	public Coordenador getCoordenadorById(int id) {
 		return coordenadorDAO.getById(id);
 	}

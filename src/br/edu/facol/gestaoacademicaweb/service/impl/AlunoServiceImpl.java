@@ -27,7 +27,7 @@ public class AlunoServiceImpl implements AlunoService {
 	}
 
 	@Transactional
-	public void atualizaAluno(Aluno aluno) {
+	public void atualizarAluno(Aluno aluno) {
 		alunoDAO.atualizar(aluno);
 	}
 

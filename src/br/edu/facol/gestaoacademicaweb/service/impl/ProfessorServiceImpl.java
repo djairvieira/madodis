@@ -27,16 +27,18 @@ public class ProfessorServiceImpl implements ProfessorService {
 	}
 
 	@Transactional
-	public void atualizaProfessor(Professor professor) {
+	public void atualizarProfessor(Professor professor) {
 		professorDAO.atualizar(professor);
 	}
 
 	@Override
+	@Transactional
 	public List<Professor> listarProfessors() {
 		return professorDAO.listarTodos();
 	}
 
 	@Override
+	@Transactional
 	public Professor getProfessorById(int id) {
 		return professorDAO.getById(id);
 	}

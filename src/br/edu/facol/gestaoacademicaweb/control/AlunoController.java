@@ -49,7 +49,7 @@ public class AlunoController {
 	public String atualizarAluno(@ModelAttribute("aluno") Aluno aluno, ModelMap model, HttpServletRequest request) {
 		model.addAttribute(aluno.getNome());
 		model.addAttribute(aluno.getMatricula());
-		alunoService.atualizaAluno(aluno);
+		alunoService.atualizarAluno(aluno);
 		return "redirect:/listarAlunos";
 	}
 	

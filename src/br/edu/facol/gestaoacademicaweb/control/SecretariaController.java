@@ -49,7 +49,7 @@ public class SecretariaController {
 	public String atualizarSecretaria(@ModelAttribute("secretaria") Secretaria secretaria, ModelMap model, HttpServletRequest request) {
 		model.addAttribute(secretaria.getNome());
 		model.addAttribute(secretaria.getMatricula());
-		secretariaService.atualizaSecretaria(secretaria);
+		secretariaService.atualizarSecretaria(secretaria);
 		return "redirect:/listarSecretarias";
 	}
 	

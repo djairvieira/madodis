@@ -27,7 +27,7 @@ public class InstituicaoServiceImpl implements InstituicaoService {
 	}
 
 	@Transactional
-	public void atualizaInstituicao(Instituicao instituicao) {
+	public void atualizarInstituicao(Instituicao instituicao) {
 		instituicaoDAO.atualizar(instituicao);
 	}
 
