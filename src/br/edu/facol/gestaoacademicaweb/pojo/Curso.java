@@ -1,7 +1,11 @@
 package br.edu.facol.gestaoacademicaweb.pojo;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -10,6 +14,9 @@ public class Curso extends BaseObject {
 
 	@Column(name="NOME")
 	private String nome;
+	
+	@ManyToMany(fetch=FetchType.EAGER)
+	private List<Disciplina> disciplinas;
 
 	public String getNome() {
 		return nome;
@@ -17,6 +24,14 @@ public class Curso extends BaseObject {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package br.edu.facol.gestaoacademicaweb.control;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -47,7 +48,7 @@ public class ProfessorController {
 		return "redirect:/listarProfessores";
 	}
 	
-	@RequestMapping(value = "/atualizarProfessor", method = RequestMethod.POST)
+	@RequestMapping(value = "/atualizarProfessor", method = RequestMethod.PUT)
 	public String atualizarprofessor(@ModelAttribute("professor") Professor professor, ModelMap model, HttpServletRequest request) {
 		model.addAttribute(professor.getNome());
 		model.addAttribute(professor.getMatricula());
@@ -64,6 +65,10 @@ public class ProfessorController {
 	@RequestMapping(value = "/update/professor/{professorId}", method = RequestMethod.GET)
 	public ModelAndView getprofessor(@PathVariable("professorId") int id) {
 		Professor professor = professorService.getProfessorById(id);
-		return new ModelAndView("professor/inserir_professor_form", "professor", professor);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("professor", professor);
+		map.put("sexos", Sexo.values());
+		map.put("titulacoes", Titulacao.values());
+		return new ModelAndView("professor/inserir_professor_form", map);
 	}
 }

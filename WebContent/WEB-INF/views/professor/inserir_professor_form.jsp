@@ -46,14 +46,16 @@
 			
 				<c:choose>
 					<c:when test="${professor.id < 1}">
-						<c:set var="my_action" value="adicionarProfessor.html"/>
+						<c:set var="my_action" value="/GestaoAcademicaWeb/adicionarProfessor"/>
+						<c:set var="my_method" value="post"/>
 					</c:when>
 					<c:otherwise>
-						<c:set var="my_action" value="atualizarProfessor.html"/>
+						<c:set var="my_action" value="/GestaoAcademicaWeb/atualizarProfessor"/>
+						<c:set var="my_method" value="put"/>
 					</c:otherwise>
 				</c:choose>
 			
-				<form:form method="post" action="${my_action}"
+				<form:form method="${my_method}" action="${my_action}"
 					commandName="professor">
 					<label>Nome:</label>
 					<form:input path="nome" cssClass="form-control"></form:input>
