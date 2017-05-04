@@ -42,5 +42,11 @@ public class ProfessorServiceImpl implements ProfessorService {
 	public Professor getProfessorById(int id) {
 		return professorDAO.getById(id);
 	}
+	
+	@Override
+	@Transactional
+	public Professor autenticarProfessor(String matricula, String senha) {
+		return professorDAO.autenticar(matricula, senha);
+	}
 
 }

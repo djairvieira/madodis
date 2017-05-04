@@ -17,7 +17,11 @@
 		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Instituicao"/>
 		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Professor"/>
 		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Aluno"/>
-		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Curso"/>	
-		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Secretaria"/>			    
+		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Secretaria"/>
+		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.PlanoDeEnsino"/>
+		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Disciplina"/>			
+		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Curso"/> 
+		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Coordenador"/>  
+		<mapping class="br.edu.facol.gestaoacademicaweb.pojo.Aula"/>    
 	</session-factory>
 </hibernate-configuration>	

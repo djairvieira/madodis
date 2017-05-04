@@ -11,5 +11,6 @@ public interface ProfessorService {
 	public void atualizarProfessor(Professor aluno);
 	public List<Professor> listarProfessors();
 	public Professor getProfessorById(int id);
+	public Professor autenticarProfessor(String matricula, String senha);
 	
 }

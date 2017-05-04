@@ -35,7 +35,7 @@
 							<span class="sr-only"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span> <span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Gestao Academica Web</a>
+						<a class="navbar-brand" href="#">Madodis</a>
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
@@ -46,11 +46,14 @@
 								data-toggle="dropdown" role="button" aria-haspopup="true"
 								aria-expanded="false">Cadastros<span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="listarProfessores">Professores</a></li>
-									<li><a href="listarAlunos">Alunos</a></li>
-									<li><a href="listarCursos">Cursos</a></li>
-									<li><a href="listarInstituicoes">Instituições</a></li>
-									<li><a href="listarSecretarias">Secretarias</a></li>
+									<li><a href="/madodis/listarProfessores">Professores</a></li>
+									<li><a href="/madodis/listarAlunos">Alunos</a></li>
+									<li><a href="/madodis/listarCursos">Cursos</a></li>
+									<li><a href="/madodis/listarInstituicoes">Instituições</a></li>
+									<li><a href="/madodis/listarSecretarias">Secretarias</a></li>
+									<li><a href="/madodis/listarDisciplinas">Disciplinas</a></li>
+									<li><a href="/madodis/listarCoordenadores">Coordenadores</a></li>
+									<li><a href="/madodis/listarAulas">Aulas</a></li>
 								</ul></li>
 						</ul>
 					</div>

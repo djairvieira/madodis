@@ -9,12 +9,12 @@ public class DefaultController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		return "index";
+		return "login";
 	}
 
 	@RequestMapping("/home")
 	public String inicial() {
-		return "index";
+		return "login";
 	}
 
 }

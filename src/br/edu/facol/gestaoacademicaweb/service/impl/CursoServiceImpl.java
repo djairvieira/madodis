@@ -27,7 +27,7 @@ public class CursoServiceImpl implements CursoService{
 	}
 
 	@Override
-	public void atualizaCurso(Curso curso) {
+	public void atualizarCurso(Curso curso) {
 		cursoDAO.atualizaCurso(curso);
 	}
 
@@ -37,7 +37,7 @@ public class CursoServiceImpl implements CursoService{
 	}
 
 	@Override
-	public Curso cursoById(int id) {
+	public Curso getCursoById(int id) {
 		return cursoDAO.cursoById(id);
 	}
 

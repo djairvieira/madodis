@@ -11,5 +11,6 @@ public interface AlunoService {
 	public void atualizarAluno(Aluno aluno);
 	public List<Aluno> listarAlunos();
 	public Aluno getAlunoById(int id);
+	public Aluno autenticarAluno(String matricula, String senha);
 	
 }

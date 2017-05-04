@@ -25,18 +25,67 @@
 </head>
 <body>
 <div class="container">
-<h3><legend>Formulário de Cadastro de Cursos</legend></h3>
+<h3><c:choose>
+					<c:when test="${curso.id < 1}">
+						<legend>Cadastrar Curso</legend>
+					</c:when>
+					<c:otherwise>
+						<legend>Atualizar Curso</legend>
+					</c:otherwise>
+				</c:choose></h3>
 </div>
 <div class="container">
-<div class="col-mod-4"></div>
-<div class="col-mod-4">
-<form:form method="post" action="adicionarCurso.html" commandName="curso">
-	<label>Nome:</label>
-		<form:input path="nome"  cssClass="form-control"></form:input><br/>		
-</form:form>
-<input type="submit" value="Salvar" class="btn btn-success"/>
-</div>
-<div class="col-mod-4"></div>
-</div>
+			<div class="col-mod-4"></div>
+			<div class="col-mod-4">
+			
+				<c:choose>
+					<c:when test="${curso.id < 1}">
+						<c:set var="my_action" value="adicionarCurso.html"/>
+					</c:when>
+					<c:otherwise>
+						<c:set var="my_action" value="atualizarCurso.html"/>
+					</c:otherwise>
+				</c:choose>
+			
+				<form:form method="post" action="${my_action}"
+					commandName="curso">
+					<label>Nome:</label>
+					<form:input path="nome" cssClass="form-control"></form:input>
+					<br />
+					<label>Sigla:</label>
+					<form:input path="sigla" cssClass="form-control"></form:input>
+					<br />
+					<label>Descricao:</label>
+					<form:input path="descricao" cssClass="form-control"></form:input>
+					<br />
+					<label>Codigo do Curso no MEC:</label>
+					<form:input path="codigoCursoMec" cssClass="form-control"></form:input>
+					<br />
+					<label>Numero de periodos:</label>
+					<form:input path="periodos" cssClass="form-control"></form:input>
+					<br />
+					<label>Area:</label>
+					<form:input path="area" cssClass="form-control"></form:input>
+					<br />
+					<label>Tipo de Ensino:</label>
+					<form:input path="tipoEnsino" cssClass="form-control"></form:input>
+					<br />
+					<label>Data de Criacao:</label>
+					<form:input type="date" path="dataCriacao" cssClass="form-control"></form:input>
+					<br />
+					<label>Instituicao:</label>
+					<select name="instituicao" id="instituicao">
+						<c:forEach items="${instituicoes}" var="instituicao">
+							<option value="${instituicao}">${instituicao.name}</option>
+						</c:forEach>
+					</select>
+					<br />
+					<input type="submit" value="Salvar" class="btn btn-success" />
+					<br />
+					<br />
+				</form:form>
+			</div>
+			<div class="col-mod-4"></div>
+		</div>
 </body>
 </html>

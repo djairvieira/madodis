@@ -25,17 +25,17 @@
 			integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
 			crossorigin="anonymous"></script>
 		
-		<title>Cadastro de Professores</title>
+		<title>Cadastro de Coordenadores</title>
 	</head>
 	<body>
 		<div class="container">
 			<h3>
 				<c:choose>
-					<c:when test="${professor.id < 1}">
-						<legend>Cadastrar Professor</legend>
+					<c:when test="${coordenador.id < 1}">
+						<legend>Cadastrar Coordenador</legend>
 					</c:when>
 					<c:otherwise>
-						<legend>Atualizar Professor</legend>
+						<legend>Atualizar Coordenador</legend>
 					</c:otherwise>
 				</c:choose>
 			</h3>
@@ -45,18 +45,18 @@
 			<div class="col-mod-4">
 			
 				<c:choose>
-					<c:when test="${professor.id < 1}">
-						<c:set var="my_action" value="/madodis/adicionarProfessor"/>
+					<c:when test="${coordenador.id < 1}">
+						<c:set var="my_action" value="/madodis/adicionarCoordenador"/>
 						<c:set var="my_method" value="post"/>
 					</c:when>
 					<c:otherwise>
-						<c:set var="my_action" value="/madodis/atualizarProfessor"/>
+						<c:set var="my_action" value="/madodis/atualizarCoordenador"/>
 						<c:set var="my_method" value="put"/>
 					</c:otherwise>
 				</c:choose>
 			
 				<form:form method="${my_method}" action="${my_action}"
-					commandName="professor">
+					commandName="coordenador">
 					<label>Nome:</label>
 					<form:input path="nome" cssClass="form-control"></form:input>
 					<br />
@@ -70,12 +70,6 @@
 						</c:forEach>
 					</select>
 					<br />
-					<label>Titulação:</label>
-					<select name="titulacao" id="titulacao">
-						<c:forEach items="${titulacoes}" var="titulacao">
-							<option value="${titulacao}">${titulacao}</option>
-						</c:forEach>
-					</select>
 					<br />
 					<label>Titulo de eleitor:</label>
 					<form:input path="tituloEleitoral" cssClass="form-control"></form:input>
@@ -146,6 +140,10 @@
 					
 					<label>Telefone:</label>
 					<form:input path="telefone.numero" cssClass="form-control" />
+					<br />
+					
+					<label>Em Exercicio:</label>
+					<form:checkbox path="emExercicio" cssClass="form-control" />
 					<br />
 					
 					<input type="submit" value="Salvar" class="btn btn-success" />

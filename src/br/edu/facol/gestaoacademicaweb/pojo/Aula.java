@@ -9,6 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="TB_AULA")
 public class Aula extends BaseObject {
@@ -16,17 +18,15 @@ public class Aula extends BaseObject {
 	@Column(name="ASSUNTO")
 	private String assunto;
 	
+	@Column(name="DATA_AULA")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private String dataAula;
+	
 	@OneToOne
 	private Disciplina disciplina;
 	
 	@OneToOne
 	private Professor professor;
-	
-	@ManyToOne(fetch=FetchType.EAGER)
-	private List<Curso> cursos;
-	
-	@ManyToOne(fetch=FetchType.EAGER)
-	private List<Turma> turmas;
 	
 	public String getAssunto() {
 		return assunto;
@@ -52,20 +52,12 @@ public class Aula extends BaseObject {
 		this.professor = professor;
 	}
 
-	public List<Curso> getCursos() {
-		return cursos;
+	public String getDataAula() {
+		return dataAula;
 	}
 
-	public void setCursos(List<Curso> cursos) {
-		this.cursos = cursos;
-	}
-
-	public List<Turma> getTurmas() {
-		return turmas;
-	}
-
-	public void setTurmas(List<Turma> turmas) {
-		this.turmas = turmas;
+	public void setDataAula(String dataAula) {
+		this.dataAula = dataAula;
 	}
 
 	@Override

@@ -11,5 +11,6 @@ public interface SecretariaService {
 	public void atualizarSecretaria(Secretaria aluno);
 	public List<Secretaria> listarSecretarias();
 	public Secretaria getSecretariaById(int id);
+	public Secretaria autenticarSecretaria(String matricula, String senha);
 	
 }

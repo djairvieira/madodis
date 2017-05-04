@@ -33,7 +33,7 @@ public class CoordenadorServiceImpl implements CoordenadorService {
 
 	@Override
 	@Transactional
-	public List<Coordenador> listarCoordenadors() {
+	public List<Coordenador> listarCoordenadores() {
 		return coordenadorDAO.listarTodos();
 	}
 
@@ -41,6 +41,12 @@ public class CoordenadorServiceImpl implements CoordenadorService {
 	@Transactional
 	public Coordenador getCoordenadorById(int id) {
 		return coordenadorDAO.getById(id);
+	}
+	
+	@Override
+	@Transactional
+	public Coordenador autenticarCoordenador(String matricula, String senha) {
+		return coordenadorDAO.autenticar(matricula, senha);
 	}
 
 }

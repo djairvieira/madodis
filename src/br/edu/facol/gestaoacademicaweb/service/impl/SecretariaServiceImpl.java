@@ -42,5 +42,11 @@ public class SecretariaServiceImpl implements SecretariaService {
 	public Secretaria getSecretariaById(int id) {
 		return secretariaDAO.getById(id);
 	}
+	
+	@Override
+	@Transactional
+	public Secretaria autenticarSecretaria(String matricula, String senha) {
+		return secretariaDAO.autenticar(matricula, senha);
+	}
 
 }

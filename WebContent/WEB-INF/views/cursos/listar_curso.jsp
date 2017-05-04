@@ -33,14 +33,20 @@
 <table class="table table-striped">
 <tr>
 	<th>Nome</th>
+	<th>Sigla</th>
+	<th>Descricao</th>
 	<th>&nbsp;</th>
 	<th>&nbsp;</th>
 </tr>
 <c:forEach items="${cursoList}" var="curso">
 <tr>
 	<td>${curso.nome}</td>	
-	<td><a href="remover/${curso.id}"><span class="glyphicon glyphicon-remove-circle"></span></a></td>
-<%-- 	<td><a href="update/${docente.id}"><span class="glyphicon glyphicon-pencil"></span></a></td> --%>
+	<td>${curso.sigla}</td>	
+	<td>${curso.descricao}</td>	
+	<td><a href="remover/curso/${curso.id}"><span
+									class="glyphicon glyphicon-remove-circle"></span></a></td>
+							<td><a href="update/curso/${curso.id}"><span 
+									class="glyphicon glyphicon-pencil"></span></a></td>
 </tr>
 </c:forEach>
 </table>

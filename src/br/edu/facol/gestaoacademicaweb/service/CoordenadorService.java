@@ -9,7 +9,8 @@ public interface CoordenadorService {
 	public void adicionarCoordenador(Coordenador coordenador);
 	public void removerCoordenador(int id);
 	public void atualizarCoordenador(Coordenador aluno);
-	public List<Coordenador> listarCoordenadors();
+	public List<Coordenador> listarCoordenadores();
 	public Coordenador getCoordenadorById(int id);
+	public Coordenador autenticarCoordenador(String matricula, String senha);
 	
 }

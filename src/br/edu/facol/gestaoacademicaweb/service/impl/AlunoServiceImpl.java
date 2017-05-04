@@ -42,5 +42,11 @@ public class AlunoServiceImpl implements AlunoService {
 	public Aluno getAlunoById(int id) {
 		return alunoDAO.getById(id);
 	}
+	
+	@Override
+	@Transactional
+	public Aluno autenticarAluno(String matricula, String senha) {
+		return alunoDAO.autenticar(matricula, senha);
+	}
 
 }
