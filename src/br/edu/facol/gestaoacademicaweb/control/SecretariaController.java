@@ -1,10 +1,11 @@
 package br.edu.facol.gestaoacademicaweb.control;
 
+import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,7 +21,6 @@ import br.edu.facol.gestaoacademicaweb.service.SecretariaService;
 @Controller
 public class SecretariaController {
 
-	@Resource(name = "secretariaService")
 	private SecretariaService secretariaService;
 
 	@RequestMapping("/listarSecretarias")
@@ -62,6 +62,15 @@ public class SecretariaController {
 	@RequestMapping(value = "/update/secretaria/{secretariaId}", method = RequestMethod.GET)
 	public ModelAndView getSecretaria(@PathVariable("secretariaId") int id) {
 		Secretaria secretaria = secretariaService.getSecretariaById(id);
-		return new ModelAndView("secretaria/inserir_secretaria_form", "secretaria", secretaria);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("secretaria", secretaria);
+		map.put("sexos", Sexo.values());
+		return new ModelAndView("secretaria/inserir_secretaria_form", map);
 	}
+
+	@Autowired
+	public void setSecretariaService(SecretariaService secretariaService) {
+		this.secretariaService = secretariaService;
+	}	
+	
 }

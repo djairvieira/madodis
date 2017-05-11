@@ -46,15 +46,16 @@
 			
 				<c:choose>
 					<c:when test="${secretaria.id < 1}">
-						<c:set var="my_action" value="adicionarSecretaria.html"/>
+						<c:set var="my_action" value="/madodis/adicionarSecretaria"/>
 					</c:when>
 					<c:otherwise>
-						<c:set var="my_action" value="atualizarSecretaria.html"/>
+						<c:set var="my_action" value="/madodis/atualizarSecretaria"/>
 					</c:otherwise>
 				</c:choose>
 			
 				<form:form method="post" action="${my_action}"
 					commandName="secretaria">
+					<form:hidden path="id"/>
 					<label>Nome:</label>
 					<form:input path="nome" cssClass="form-control"></form:input>
 					<br />
@@ -62,11 +63,9 @@
 					<form:input path="cpf" cssClass="form-control"></form:input>
 					<br />
 					<label>Sexo:</label>
-					<select name="sexo" id="sexo">
-						<c:forEach items="${sexos}" var="sexo">
-							<option value="${sexo}">${sexo}</option>
-						</c:forEach>
-					</select>
+					<form:select path="sexo">
+						<form:options items="${sexos}"/>
+					</form:select>
 					<br />
 					<label>Titulo de eleitor:</label>
 					<form:input path="tituloEleitoral" cssClass="form-control"></form:input>

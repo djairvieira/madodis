@@ -28,7 +28,7 @@
 		<div class="container">
 			<h3>
 				<legend>
-					<a href="home">Alunos Cadastrados</a>
+					<a href="javascript:void(0)">Alunos Cadastrados</a>
 				</legend>
 			</h3>
 		</div>
@@ -58,9 +58,9 @@
 							<td>${aluno.nome}</td>
 							<td>${aluno.cpf}</td>
 							<td>${aluno.matricula}</td>
-							<td><a href="remover/aluno/${aluno.id}"><span
+							<td><a href="/madodis/remover/aluno/${aluno.id}"><span
 									class="glyphicon glyphicon-remove-circle"></span></a></td>
-							<td><a href="update/aluno/${aluno.id}"><span 
+							<td><a href="/madodis/update/aluno/${aluno.id}"><span 
 									class="glyphicon glyphicon-pencil"></span></a></td>
 						</tr>
 					</c:forEach>

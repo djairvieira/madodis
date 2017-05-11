@@ -58,9 +58,9 @@
 							<td>${professor.nome}</td>
 							<td>${professor.cpf}</td>
 							<td>${professor.matricula}</td>
-							<td><a href="remover/professor/${professor.id}"><span
+							<td><a href="/madodis/remover/professor/${professor.id}"><span
 									class="glyphicon glyphicon-remove-circle"></span></a></td>
-							<td><a href="update/professor/${professor.id}"><span 
+							<td><a href="/madodis/update/professor/${professor.id}"><span 
 									class="glyphicon glyphicon-pencil"></span></a></td>
 						</tr>
 					</c:forEach>

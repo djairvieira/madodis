@@ -22,7 +22,17 @@
 	<context:component-scan base-package="br.edu.facol.gestaoacademicaweb"/>
 	
 	<mvc:resources location="/WEB-INF/resources/" mapping="/resources/**"></mvc:resources>
+	<!--<mvc:annotation-driven conversion-service="conversionService" />-->
 	<mvc:annotation-driven />
+	
+	<!--<bean id="conversionService"
+	      class="org.springframework.context.support.ConversionServiceFactoryBean">
+	    <property name="converters">
+	        <list>
+	            <bean class="br.edu.facol.gestaoacademicaweb.converter.ConverterParaCurso"/>
+	        </list>
+	    </property>
+	</bean>-->
 	
 	<bean id="jspViewResolver"
 			class="org.springframework.web.servlet.view.InternalResourceViewResolver">

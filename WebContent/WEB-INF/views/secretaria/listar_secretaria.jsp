@@ -58,9 +58,9 @@
 							<td>${secretaria.nome}</td>
 							<td>${secretaria.cpf}</td>
 							<td>${secretaria.matricula}</td>
-							<td><a href="remover/secretaria/${secretaria.id}"><span
+							<td><a href="/madodis/remover/secretaria/${secretaria.id}"><span
 									class="glyphicon glyphicon-remove-circle"></span></a></td>
-							<td><a href="update/secretaria/${secretaria.id}"><span 
+							<td><a href="/madodis/update/secretaria/${secretaria.id}"><span 
 									class="glyphicon glyphicon-pencil"></span></a></td>
 						</tr>
 					</c:forEach>

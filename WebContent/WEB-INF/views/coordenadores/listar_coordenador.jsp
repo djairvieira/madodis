@@ -58,9 +58,9 @@
 							<td>${coordenador.nome}</td>
 							<td>${coordenador.cpf}</td>
 							<td>${coordenador.matricula}</td>
-							<td><a href="remover/coordenador/${coordenador.id}"><span
+							<td><a href="/madodis/remover/coordenador/${coordenador.id}"><span
 									class="glyphicon glyphicon-remove-circle"></span></a></td>
-							<td><a href="update/coordenador/${coordenador.id}"><span 
+							<td><a href="/madodis/update/coordenador/${coordenador.id}"><span 
 									class="glyphicon glyphicon-pencil"></span></a></td>
 						</tr>
 					</c:forEach>

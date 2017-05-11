@@ -3,9 +3,7 @@ package br.edu.facol.gestaoacademicaweb.control;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,7 +20,6 @@ import br.edu.facol.gestaoacademicaweb.service.ProfessorService;
 @Controller
 public class ProfessorController {
 
-	@Resource(name = "professorService")
 	private ProfessorService professorService;
 
 	@RequestMapping("/listarProfessores")
@@ -41,15 +38,15 @@ public class ProfessorController {
 	}
 
 	@RequestMapping(value = "/adicionarProfessor", method = RequestMethod.POST)
-	public String adicionarProfessor(@ModelAttribute("professor") Professor professor, ModelMap model, HttpServletRequest request) {
+	public String adicionarProfessor(@ModelAttribute("professor") Professor professor, ModelMap model) {
 		model.addAttribute(professor.getNome());
 		model.addAttribute(professor.getMatricula());
 		professorService.adicionarProfessor(professor);
 		return "redirect:/listarProfessores";
 	}
 	
-	@RequestMapping(value = "/atualizarProfessor", method = RequestMethod.PUT)
-	public String atualizarprofessor(@ModelAttribute("professor") Professor professor, ModelMap model, HttpServletRequest request) {
+	@RequestMapping(value = "/atualizarProfessor", method = RequestMethod.POST)
+	public String atualizarprofessor(@ModelAttribute("professor") Professor professor, ModelMap model) {
 		model.addAttribute(professor.getNome());
 		model.addAttribute(professor.getMatricula());
 		professorService.atualizarProfessor(professor);
@@ -71,4 +68,11 @@ public class ProfessorController {
 		map.put("titulacoes", Titulacao.values());
 		return new ModelAndView("professor/inserir_professor_form", map);
 	}
+
+	@Autowired
+	public void setProfessorService(ProfessorService professorService) {
+		this.professorService = professorService;
+	}
+	
+	
 }

@@ -1,10 +1,11 @@
 package br.edu.facol.gestaoacademicaweb.control;
 
+import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,10 +22,8 @@ import br.edu.facol.gestaoacademicaweb.service.CursoService;
 @Controller
 public class CoordenadorController {
 
-	@Resource(name = "coordenadorService")
 	private CoordenadorService coordenadorService;
 	
-	@Resource(name="cursoService")
 	private CursoService cursoService;
 
 	@RequestMapping("/listarCoordenadores")
@@ -67,7 +66,21 @@ public class CoordenadorController {
 	@RequestMapping(value = "/update/coordenador/{coordenadorId}", method = RequestMethod.GET)
 	public ModelAndView getCoordenador(@PathVariable("coordenadorId") int id) {
 		Coordenador coordenador = coordenadorService.getCoordenadorById(id);
-		return new ModelAndView("coordenadores/inserir_coordenador_form", "coordenador", coordenador);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("coordenador", coordenador);
+		map.put("coordenadorCursos", cursoService.listaCursos());
+		map.put("sexos", Sexo.values());
+		return new ModelAndView("coordenadores/inserir_coordenador_form", map);
+	}
+
+	@Autowired
+	public void setCoordenadorService(CoordenadorService coordenadorService) {
+		this.coordenadorService = coordenadorService;
+	}
+
+	@Autowired
+	public void setCursoService(CursoService cursoService) {
+		this.cursoService = cursoService;
 	}
 	
 }

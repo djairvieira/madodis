@@ -57,6 +57,7 @@
 			
 				<form:form method="${my_method}" action="${my_action}"
 					commandName="coordenador">
+					<form:hidden path="id"/>
 					<label>Nome:</label>
 					<form:input path="nome" cssClass="form-control"></form:input>
 					<br />
@@ -64,12 +65,14 @@
 					<form:input path="cpf" cssClass="form-control"></form:input>
 					<br />
 					<label>Sexo:</label>
-					<select name="sexo" id="sexo">
-						<c:forEach items="${sexos}" var="sexo">
-							<option value="${sexo}">${sexo}</option>
-						</c:forEach>
-					</select>
+					<form:select path="sexo">
+						<form:options items="${sexos}"/>
+					</form:select>
 					<br />
+					<label>Curso:</label>
+					<form:select path="curso">
+						<form:options items="${coordenadorCursos}" itemLabel="nome" itemValue="id"/>
+					</form:select>
 					<br />
 					<label>Titulo de eleitor:</label>
 					<form:input path="tituloEleitoral" cssClass="form-control"></form:input>
